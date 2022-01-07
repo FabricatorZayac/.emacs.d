@@ -1,0 +1,93 @@
+#+TITLE Emacs config
+#+STARTUP: overview
+
+* All the icons
+#+begin_src elisp
+(use-package all-the-icons
+    :ensure t)
+#+end_src
+
+* EVIL-mode
+#+begin_src elisp
+(use-package evil
+    :ensure t
+    :config
+    (evil-mode 1))
+#+end_src
+
+* Org-mode
+#+begin_src elisp
+(require 'org-tempo)
+(use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+#+end_src
+
+#+begin_src elisp
+(setq org-startup-indented t
+    org-ellipsis "  " ;; folding symbol
+    org-pretty-entities t
+    org-hide-emphasis-markers t
+    ;; show actually italicized text instead of /italicized text/
+    org-agenda-block-separator ""
+    org-fontify-whole-heading-line t
+    org-fontify-done-headline t
+    org-fontify-quote-and-verse-blocks t)
+#+end_src
+
+* Bell
+#+begin_src elisp
+(setq visible-bell 1)
+#+end_src
+
+* Quickrun
+#+begin_src elisp
+(use-package quickrun
+    :ensure t
+    :bind("<f5>". 'quickrun-shell))
+#+end_src
+
+* Linum mode
+#+begin_src elisp
+(add-hook 'prog-mode-hook 'linum-mode)
+#+end_src
+
+* LSP mode
+#+begin_src elisp
+(use-package lsp-mode
+    :commands lsp
+    :ensure t
+    :hook(c-mode . lsp))
+#+end_src
+
+* Magit
+#+begin_src elisp
+(use-package magit
+    :ensure t)
+#+end_src
+* Theme
+Everything having to do with look and feel
+
+** Colorscheme
+#+begin_src elisp
+(load-theme 'gruvbox-dark-hard)
+#+end_src
+** Font
+#+begin_src elisp
+(set-frame-font "Source code pro 11" nil t)
+#+end_src
+** Powerline
+#+begin_src elisp
+(use-package powerline
+    :ensure t
+    :config
+    (setq powerline-arrow-shape 'arrow))
+#+end_src
+*** Airline theme
+#+begin_src elisp
+(use-package airline-themes
+    :ensure t
+    :config
+    (load-theme 'airline-gruvbox-dark))
+#+end_src
