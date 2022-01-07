@@ -4,71 +4,94 @@
 * All the icons
 #+begin_src elisp
 (use-package all-the-icons
-    :ensure t)
+  :ensure t)
 #+end_src
 
 * EVIL-mode
 #+begin_src elisp
 (use-package evil
-    :ensure t
-    :config
-    (evil-mode 1))
+  :ensure t
+  :config
+  (evil-mode 1))
 #+end_src
 
 * Org-mode
 #+begin_src elisp
 (require 'org-tempo)
 (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 #+end_src
 
 #+begin_src elisp
 (setq org-startup-indented t
-    org-ellipsis "  " ;; folding symbol
-    org-pretty-entities t
-    org-hide-emphasis-markers t
-    ;; show actually italicized text instead of /italicized text/
-    org-agenda-block-separator ""
-    org-fontify-whole-heading-line t
-    org-fontify-done-headline t
-    org-fontify-quote-and-verse-blocks t)
+  org-ellipsis "  " ;; folding symbol
+  org-pretty-entities t
+  org-hide-emphasis-markers t
+  ;; show actually italicized text instead of /italicized text/
+  org-agenda-block-separator ""
+  org-fontify-whole-heading-line t
+  org-fontify-done-headline t
+  org-fontify-quote-and-verse-blocks t
+  org-edit-src-content-indentation 0)
 #+end_src
 
-* Bell
+* Company mode
 #+begin_src elisp
-(setq visible-bell 1)
+(use-package company-tabnine
+  :ensure t)
 #+end_src
 
 * Quickrun
 #+begin_src elisp
 (use-package quickrun
-    :ensure t
-    :bind("<f5>". 'quickrun-shell))
-#+end_src
-
-* Linum mode
-#+begin_src elisp
-(add-hook 'prog-mode-hook 'linum-mode)
+  :ensure t
+  :bind("<f5>". 'quickrun-shell))
 #+end_src
 
 * LSP mode
 #+begin_src elisp
 (use-package lsp-mode
-    :commands lsp
-    :ensure t
-    :hook(c-mode . lsp))
+  :commands lsp
+  :ensure t
+  :hook(c-mode . lsp))
+#+end_src
+
+* Treemacs
+#+begin_src elisp
+(use-package treemacs
+  :ensure t
+  :defer t)
+#+end_src
+
+* LSP-treemacs
+#+begin_src elisp
+(use-package lsp-treemacs
+  :ensure t
+  :commands lsp-treemacs-errors-list)
 #+end_src
 
 * Magit
 #+begin_src elisp
 (use-package magit
-    :ensure t)
+  :ensure t)
 #+end_src
-* Theme
-Everything having to do with look and feel
 
+* Look and feel
+** Blinking parens
+#+begin_src elisp
+(show-paren-mode 1)
+#+end_src
+** Bell
+#+begin_src elisp
+(setq visible-bell 1)
+#+end_src
+
+** Linum mode
+#+begin_src elisp
+(add-hook 'prog-mode-hook 'linum-mode)
+#+end_src
 ** Colorscheme
 #+begin_src elisp
 (load-theme 'gruvbox-dark-hard)
@@ -77,17 +100,42 @@ Everything having to do with look and feel
 #+begin_src elisp
 (set-frame-font "Source code pro 11" nil t)
 #+end_src
+** Dashboard
+#+begin_src elisp
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-items '((recents  . 5)
+                          (bookmarks . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner "~/.emacs.d/Emacs-logo.svg")
+  (setq dashboard-banner-logo-title "Welcome to Emacs!")
+  (setq dashboard-set-navigator t)
+  (setq dashboard-center-content t)
+  (setq dashboard-navigator-buttons
+        `(((,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
+            "Update Packages"
+            "Click to updates your packages"
+            (lambda (&rest _) (auto-package-update-now)))
+
+	   (,(all-the-icons-octicon "gear" :height 1.1 :v-adjust 0.0)
+            "Configuration"
+            "Click to open config file"
+            (lambda (&rest _) (find-file "~/.emacs.d/configuration.org")))))))
+#+end_src
 ** Powerline
 #+begin_src elisp
 (use-package powerline
-    :ensure t
-    :config
-    (setq powerline-arrow-shape 'arrow))
+  :ensure t
+  :config
+  (setq powerline-arrow-shape 'arrow))
 #+end_src
 *** Airline theme
 #+begin_src elisp
 (use-package airline-themes
-    :ensure t
-    :config
-    (load-theme 'airline-gruvbox-dark))
+  :ensure t
+  :config
+  (load-theme 'airline-gruvbox-dark))
 #+end_src
