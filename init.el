@@ -11,7 +11,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(with-editor magit airline-themes powerline quickrun all-the-icons treemacs ## impatient-mode gruvbox-theme evil))
+   '(powerline-evil with-editor magit airline-themes powerline quickrun all-the-icons treemacs ## impatient-mode gruvbox-theme evil))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 (custom-set-faces
