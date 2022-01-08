@@ -39,6 +39,13 @@
 
 * Company mode
 #+begin_src elisp
+(use-package company
+  :ensure t
+  :hook after-init . global-company-mode)
+#+end_src
+
+Tabnine
+#+begin_src elisp
 (use-package company-tabnine
   :ensure t)
 #+end_src
@@ -87,7 +94,6 @@
 #+begin_src elisp
 (setq visible-bell 1)
 #+end_src
-
 ** Linum mode
 #+begin_src elisp
 (add-hook 'prog-mode-hook 'linum-mode)
