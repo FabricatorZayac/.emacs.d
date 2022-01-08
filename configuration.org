@@ -11,8 +11,18 @@
 #+begin_src elisp
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
+#+end_src
+
+#+begin_src elisp
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 #+end_src
 
 * Org-mode
@@ -35,6 +45,22 @@
   org-fontify-done-headline t
   org-fontify-quote-and-verse-blocks t
   org-edit-src-content-indentation 0)
+#+end_src
+
+* Magit
+#+begin_src elisp
+(use-package magit
+  :ensure t)
+#+end_src
+
+* Reverse-im
+#+begin_src elisp
+(use-package reverse-im
+  :ensure t
+  :custom
+  (reverse-im-input-methods '("russian-computer"))
+  :config
+  (reverse-im-mode t))
 #+end_src
 
 * Company mode
@@ -77,12 +103,6 @@ Tabnine
 (use-package lsp-treemacs
   :ensure t
   :commands lsp-treemacs-errors-list)
-#+end_src
-
-* Magit
-#+begin_src elisp
-(use-package magit
-  :ensure t)
 #+end_src
 
 * Look and feel
