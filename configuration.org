@@ -73,7 +73,12 @@
 Tabnine
 #+begin_src elisp
 (use-package company-tabnine
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'company-backends #'company-tabnine))
+
+(setq company-idle-delay 0
+  company-show-numbers t)
 #+end_src
 
 * Quickrun
