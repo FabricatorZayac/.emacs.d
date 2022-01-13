@@ -12,14 +12,16 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-keybinding nil)
+  (setq evil-want-keybinding nil
+    ;; kinda broken
+	evil-undo-system 'undo-tree)
   :config
   (evil-mode 1))
 #+end_src
 
 #+begin_src elisp
 (use-package evil-collection
-  :after evil
+  :after evil magit
   :ensure t
   :config
   (evil-collection-init))
@@ -29,6 +31,7 @@
 #+begin_src elisp
 (require 'org-tempo)
 (use-package org-bullets
+  :after org
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
@@ -78,7 +81,7 @@ Tabnine
   (add-to-list 'company-backends #'company-tabnine))
 
 (setq company-idle-delay 0
-  company-show-numbers t)
+      company-show-numbers t)
 #+end_src
 
 * Quickrun
@@ -101,6 +104,14 @@ Tabnine
 (use-package treemacs
   :ensure t
   :defer t)
+#+end_src
+
+(for some reason doesn't load properly)
+#+begin_src elisp
+(use-package treemacs-icons-dired
+  :after treemacs dired all-the-icons
+  :ensure t
+  :config (treemacs-icons-dired-mode))
 #+end_src
 
 * LSP-treemacs
