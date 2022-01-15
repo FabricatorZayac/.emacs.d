@@ -27,6 +27,13 @@
   (evil-collection-init))
 #+end_src
 
+#+begin_src elisp
+(use-package evil-commentary
+  :after evil
+  :ensure t
+  :hook (prog-mode . evil-commentary-mode))
+#+end_src
+
 * Org-mode
 #+begin_src elisp
 (require 'org-tempo)
