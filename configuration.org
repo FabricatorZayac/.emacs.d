@@ -13,10 +13,10 @@
   :ensure t
   :init
   (setq evil-want-keybinding nil
-    ;; kinda broken
 	evil-undo-system 'undo-tree)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (global-undo-tree-mode))
 #+end_src
 
 #+begin_src elisp
