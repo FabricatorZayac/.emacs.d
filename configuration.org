@@ -8,6 +8,7 @@
 #+end_src
 
 * EVIL-mode
+** EVIL itself
 #+begin_src elisp
 (use-package evil
   :ensure t
@@ -19,6 +20,7 @@
   (global-undo-tree-mode))
 #+end_src
 
+** evil-collection so I can use vim keys in magit
 #+begin_src elisp
 (use-package evil-collection
   :after evil magit
@@ -27,6 +29,7 @@
   (evil-collection-init))
 #+end_src
 
+** evil-commentary is my must-have tpope plugin
 #+begin_src elisp
 (use-package evil-commentary
   :after evil
@@ -35,8 +38,15 @@
 #+end_src
 
 * Org-mode
+** org-tempo
 #+begin_src elisp
-(require 'org-tempo)
+(use-package org-tempo
+  :after org
+  :ensure t)
+#+end_src
+
+** org-bullets
+#+begin_src elisp
 (use-package org-bullets
   :after org
   :ensure t
@@ -44,6 +54,7 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 #+end_src
 
+** org-mode variables
 #+begin_src elisp
 (setq org-startup-indented t
   org-ellipsis "  " ;; folding symbol
@@ -74,13 +85,14 @@
 #+end_src
 
 * Company mode
+** company itself
 #+begin_src elisp
 (use-package company
   :ensure t
   :hook(after-init . global-company-mode))
 #+end_src
 
-Tabnine
+** Tabnine company backend
 #+begin_src elisp
 (use-package company-tabnine
   :ensure t
@@ -107,12 +119,14 @@ Tabnine
 #+end_src
 
 * Treemacs
+** treemacs itself
 #+begin_src elisp
 (use-package treemacs
   :ensure t
   :defer t)
 #+end_src
 
+** treemacs-icons-dired
 (for some reason doesn't load properly)
 #+begin_src elisp
 (use-package treemacs-icons-dired
