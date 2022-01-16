@@ -16,8 +16,7 @@
   (setq evil-want-keybinding nil
 	evil-undo-system 'undo-tree)
   :config
-  (evil-mode 1)
-  (global-undo-tree-mode))
+  (evil-mode 1))
 #+end_src
 
 ** evil-collection so I can use vim keys in magit
@@ -37,12 +36,21 @@
   :hook (prog-mode . evil-commentary-mode))
 #+end_src
 
+** undo-tree-mode
+#+begin_src elisp
+(use-package undo-tree
+  :after evil
+  :ensure t
+  :config
+  (global-undo-tree-mode))
+#+end_src
+
 * Org-mode
 ** org-tempo
 #+begin_src elisp
 (use-package org-tempo
-  :after org
-  :ensure t)
+  :after org)
+  ;; :ensure t)
 #+end_src
 
 ** org-bullets
