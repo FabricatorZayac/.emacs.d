@@ -29,6 +29,8 @@
     (package-refresh-contents)
     (package-install 'use-package))
 
-(package-refresh-contents)
+(unless package-archive-contents
+  (package-refresh-contents))
+
 (when (file-readable-p "~/.emacs.d/configuration.org")
     (org-babel-load-file (expand-file-name "~/.emacs.d/configuration.org")))
