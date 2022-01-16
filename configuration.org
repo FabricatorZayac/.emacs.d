@@ -150,6 +150,12 @@
   :commands lsp-treemacs-errors-list)
 #+end_src
 
+* Python
+#+begin_src elisp
+(use-package elpy
+  :ensure t
+  :hook (python-mode . elpy-enable))
+#+end_src
 * Look and feel
 ** Blinking parens
 #+begin_src elisp
