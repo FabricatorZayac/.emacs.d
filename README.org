@@ -1,6 +1,0 @@
-#+TITLE: My Emacs config directory
-
-Most configuration is in an org file, cause I think it's cool.
-
-Contains EVIL, cause I am a vimmer.
-company-mode backend is tabnine.
