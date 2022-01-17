@@ -201,12 +201,12 @@ Line numbers in prog mode
   (dashboard-setup-startup-hook)
   (setq dashboard-items '((recents  . 5)
                           (bookmarks . 5)))
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-startup-banner "~/.emacs.d/Emacs-logo.svg")
-  (setq dashboard-banner-logo-title "Welcome to Emacs!")
-  (setq dashboard-set-navigator t)
-  (setq dashboard-center-content t)
+  (setq dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-startup-banner "~/.emacs.d/Emacs-logo.svg"
+        dashboard-banner-logo-title "Welcome to Emacs!"
+        dashboard-set-navigator t
+        dashboard-center-content t)
   (setq dashboard-navigator-buttons
         `(((,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
             "Update Packages"
