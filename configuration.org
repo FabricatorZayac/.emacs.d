@@ -46,6 +46,15 @@
   (global-undo-tree-mode))
 #+end_src
 
+** evil-goggles
+#+begin_src elisp
+(use-package evil-goggles
+  :ensure t
+  :config
+  (evil-goggles-mode)
+  (evil-goggles-use-diff-faces))
+#+end_src
+
 * Org-mode
 ** org-tempo
 #+begin_src elisp
@@ -98,7 +107,7 @@
 #+begin_src elisp
 (use-package company
   :ensure t
-  :hook(after-init . global-company-mode))
+  :hook(prog-mode . global-company-mode))
 #+end_src
 
 ** Tabnine company backend
@@ -149,6 +158,12 @@
 (use-package lsp-treemacs
   :ensure t
   :commands lsp-treemacs-errors-list)
+#+end_src
+
+* vterm
+#+begin_src elisp
+(use-package vterm
+  :ensure t)
 #+end_src
 
 * Python
