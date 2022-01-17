@@ -16,7 +16,8 @@
   (setq evil-want-keybinding nil
 	evil-undo-system 'undo-tree)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex))
 #+end_src
 
 ** evil-collection so I can use vim keys in magit
@@ -156,27 +157,42 @@
   :ensure t
   :hook (python-mode . elpy-enable))
 #+end_src
+
 * Look and feel
-** Blinking parens
+** Brackets
+Highlight matching parens
 #+begin_src elisp
 (show-paren-mode 1)
 #+end_src
+
+Automatic pair matching (brackets, parens, etc.)
+#+begin_src elisp
+(add-hook 'prog-mode-hook
+	  #'electric-pair-local-mode)
+#+end_src
+
 ** Bell
+stfu
 #+begin_src elisp
 (setq visible-bell 1)
 #+end_src
+
 ** Linum mode
+Line numbers in prog mode
 #+begin_src elisp
 (add-hook 'prog-mode-hook 'linum-mode)
 #+end_src
+
 ** Colorscheme
 #+begin_src elisp
 (load-theme 'gruvbox-dark-hard)
 #+end_src
+
 ** Font
 #+begin_src elisp
 (set-frame-font "Source code pro 11" nil t)
 #+end_src
+
 ** Dashboard
 #+begin_src elisp
 (use-package dashboard
@@ -202,6 +218,7 @@
             "Click to open config file"
             (lambda (&rest _) (find-file "~/.emacs.d/configuration.org")))))))
 #+end_src
+
 ** Powerline
 #+begin_src elisp
 (use-package powerline
