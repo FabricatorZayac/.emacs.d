@@ -17,7 +17,8 @@
 	evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
-  (define-key evil-normal-state-map (kbd ";") 'evil-ex))
+  (evil-global-set-key 'normal (kbd ";") 'evil-ex)
+  (evil-define-key 'normal elpy-mode-map (kbd "C-f1") 'elpy-goto-definition))
 #+end_src
 
 ** evil-collection so I can use vim keys in magit
