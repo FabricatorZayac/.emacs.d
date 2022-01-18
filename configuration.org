@@ -170,7 +170,8 @@
 #+begin_src elisp
 (use-package elpy
   :ensure t
-  :hook (python-mode . elpy-enable))
+  :hook ((python-mode . elpy-enable)
+         (elpy-mode . (lambda () (highlight-indentation-mode -1)))))
 #+end_src
 
 * Look and feel
@@ -247,4 +248,11 @@ Line numbers in prog mode
   :ensure t
   :config
   (load-theme 'airline-gruvbox-dark))
+#+end_src
+
+** Highlight indent
+#+begin_src elisp
+(use-package highlight-indent-guides
+  :ensure t
+  :hook (prog-mode . highlight-indent-guides-mode))
 #+end_src
