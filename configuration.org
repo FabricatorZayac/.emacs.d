@@ -18,7 +18,7 @@
   :config
   (evil-mode 1)
   (evil-global-set-key 'normal (kbd ";") 'evil-ex)
-  (evil-define-key 'normal elpy-mode-map (kbd "C-f1") 'elpy-goto-definition))
+  (evil-define-key 'normal elpy-mode-map (kbd "C-<f1>") 'elpy-goto-definition))
 #+end_src
 
 ** evil-collection so I can use vim keys in magit
