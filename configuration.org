@@ -176,6 +176,18 @@
 #+end_src
 
 * Look and feel
+** Exit
+#+begin_src elisp
+(add-hook 'kill-emacs-query-functions
+          (lambda () (y-or-n-p "Exit Emacs? "))
+          'append)
+#+end_src
+
+** Tab bar
+#+begin_src elisp
+(setq tab-bar-new-tab-choice "*dashboard*")
+#+end_src
+
 ** Brackets
 Highlight matching parens
 #+begin_src elisp
