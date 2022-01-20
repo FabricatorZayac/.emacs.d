@@ -212,10 +212,10 @@ stfu
 (setq visible-bell 1)
 #+end_src
 
-** Linum mode
+** display-line-numbers-mode
 Line numbers in prog mode
 #+begin_src elisp
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 #+end_src
 
 ** Colorscheme
