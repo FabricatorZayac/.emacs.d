@@ -181,6 +181,14 @@
   :ensure t)
 #+end_src
 
+* which-key
+#+begin_src elisp
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+#+end_src
+
 * Look and feel
 ** Exit
 #+begin_src elisp
