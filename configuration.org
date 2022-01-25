@@ -141,8 +141,7 @@
 ** treemacs itself
 #+begin_src elisp
 (use-package treemacs
-  :ensure t
-  :defer t)
+  :ensure t)
 #+end_src
 
 ** treemacs-icons-dired
@@ -200,6 +199,7 @@
 ** Tab bar
 #+begin_src elisp
 (setq tab-bar-new-tab-choice "*dashboard*")
+(tab-bar-mode)
 #+end_src
 
 ** Brackets
