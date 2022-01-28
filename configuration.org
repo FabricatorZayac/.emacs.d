@@ -108,7 +108,7 @@
 #+begin_src elisp
 (use-package company
   :ensure t
-  :hook (prog-mode . global-company-mode))
+  :hook (prog-mode . company-mode))
 #+end_src
 
 ** Tabnine company backend
