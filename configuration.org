@@ -196,6 +196,13 @@
           'append)
 #+end_src
 
+** Highlight numbers
+#+begin_src elisp
+(use-package highlight-numbers
+  :ensure t
+  :hook (prog-mode . highlight-numbers-mode))
+#+end_src
+
 ** Tab bar
 #+begin_src elisp
 (setq tab-bar-new-tab-choice "*dashboard*")
