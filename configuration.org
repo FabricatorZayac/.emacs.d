@@ -108,7 +108,7 @@
 #+begin_src elisp
 (use-package company
   :ensure t
-  :hook(prog-mode . global-company-mode))
+  :hook (prog-mode . global-company-mode))
 #+end_src
 
 ** Tabnine company backend
@@ -214,6 +214,13 @@ Automatic pair matching (brackets, parens, etc.)
 	  #'electric-pair-local-mode)
 #+end_src
 
+Rainbow delimeters
+#+begin_src elisp
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
 ** Bell
 stfu
 #+begin_src elisp
@@ -263,13 +270,15 @@ Line numbers in prog mode
 #+end_src
 
 ** Powerline
+Powerline itself
 #+begin_src elisp
 (use-package powerline
   :ensure t
   :config
   (setq powerline-arrow-shape 'arrow))
 #+end_src
-*** Airline theme
+
+Airline theme
 #+begin_src elisp
 (use-package airline-themes
   :ensure t
