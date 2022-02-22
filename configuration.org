@@ -245,6 +245,7 @@ stfu
 Line numbers in prog mode
 #+begin_src elisp
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(setq display-line-numbers 'relative)
 #+end_src
 
 ** indent-tabs-mode
