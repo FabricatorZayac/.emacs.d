@@ -174,6 +174,12 @@
          (elpy-mode . (lambda () (highlight-indentation-mode -1)))))
 #+end_src
 
+* C
+#+begin_src elisp
+(setq-default c-basic-offset 4)
+(setq c-default-style "bsd")
+#+end_src
+
 * PKGBUILD
 #+begin_src elisp
 (use-package pkgbuild-mode
@@ -238,6 +244,11 @@ stfu
 Line numbers in prog mode
 #+begin_src elisp
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+#+end_src
+
+** indent-tabs-mode
+#+begin_src elisp
+(setq-default indent-tabs-mode nil)
 #+end_src
 
 ** Colorscheme
