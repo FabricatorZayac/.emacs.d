@@ -13,7 +13,9 @@
  '(package-selected-packages
    '(highlight-numbers rainbow-delimiters pkgbuild-mode which-key highlight-indent-guides evil-goggles vterm undo-tree elpy treemacs-icons-dired company-tabnine company dashboard lsp-treemacs powerline-evil with-editor magit airline-themes powerline quickrun all-the-icons treemacs ## impatient-mode gruvbox-theme evil))
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(whitespace-style
+   '(face trailing tabs spaces lines empty indentation space-after-tab space-before-tab space-mark tab-mark)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -25,4 +27,5 @@
  '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed))))
+ '(whitespace-space ((t (:background "#1d2021" :foreground "gray20")))))

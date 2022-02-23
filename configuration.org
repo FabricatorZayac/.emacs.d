@@ -70,8 +70,7 @@
 (use-package org-bullets
   :after org
   :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+  :hook (org-mode . org-bullets-mode))
 #+end_src
 
 ** org-mode variables
@@ -121,6 +120,13 @@
 
 (setq company-idle-delay 0
       company-show-numbers t)
+#+end_src
+
+* Whitespace mode
+#+begin_src elisp
+(use-package whitespace
+  :ensure t
+  :hook (prog-mode . whitespace-mode))
 #+end_src
 
 * Quickrun
