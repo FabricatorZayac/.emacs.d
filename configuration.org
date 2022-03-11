@@ -57,6 +57,14 @@
   (evil-goggles-use-diff-faces))
 #+end_src
 
+** evil-surround
+#+begin_src elisp
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+#+end_src
+
 * Org-mode
 ** org-tempo
 #+begin_src elisp
