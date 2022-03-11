@@ -11,7 +11,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(highlight-numbers rainbow-delimiters pkgbuild-mode which-key highlight-indent-guides evil-goggles vterm undo-tree elpy treemacs-icons-dired company-tabnine company dashboard lsp-treemacs powerline-evil with-editor magit airline-themes powerline quickrun all-the-icons treemacs ## impatient-mode gruvbox-theme evil))
+   '(emmet-mode vue-mode evil-surround highlight-numbers rainbow-delimiters pkgbuild-mode which-key highlight-indent-guides evil-goggles vterm undo-tree elpy treemacs-icons-dired company-tabnine company dashboard lsp-treemacs powerline-evil with-editor magit airline-themes powerline quickrun all-the-icons treemacs ## impatient-mode gruvbox-theme evil))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(whitespace-style
@@ -28,4 +28,5 @@
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
  '(evil-goggles-yank-face ((t (:inherit diff-changed))))
+ '(mmm-default-submode-face ((t (:background "nil"))))
  '(whitespace-space ((t (:background "#1d2021" :foreground "gray20")))))

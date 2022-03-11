@@ -189,6 +189,19 @@
          (elpy-mode . (lambda () (highlight-indentation-mode -1)))))
 #+end_src
 
+* Vue
+#+begin_src elisp
+(use-package vue-mode
+  :ensure t)
+#+end_src
+
+* Emmet
+#+begin_src elisp
+(use-package emmet-mode
+  :ensure t
+  :hook (vue-mode . emmet-mode))
+#+end_src
+
 * C
 #+begin_src elisp
 (setq-default c-basic-offset 4)
@@ -259,6 +272,7 @@ stfu
 Line numbers in prog mode
 #+begin_src elisp
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'vue-mode-hook 'display-line-numbers-mode)
 (setq display-line-numbers 'relative)
 #+end_src
 
