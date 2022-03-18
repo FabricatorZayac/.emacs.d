@@ -1,10 +1,61 @@
 #+TITLE: Emacs config
 #+STARTUP: overview
 
-* All the icons
+* Languages
+** C
 #+begin_src elisp
-(use-package all-the-icons
+(setq-default c-basic-offset 4)
+(setq c-default-style "bsd")
+#+end_src
+
+** Python
+#+begin_src elisp
+(use-package elpy
+  :ensure t
+  :hook ((python-mode . elpy-enable)
+         (elpy-mode . (lambda () (highlight-indentation-mode -1)))))
+#+end_src
+
+** Vue
+#+begin_src elisp
+(use-package vue-mode
   :ensure t)
+#+end_src
+
+** PKGBUILD
+#+begin_src elisp
+(use-package pkgbuild-mode
+  :ensure t)
+#+end_src
+
+* Org-mode
+** org-tempo
+#+begin_src elisp
+(use-package org-tempo
+  :after org)
+  ;; :ensure t)
+#+end_src
+
+** org-bullets
+#+begin_src elisp
+(use-package org-bullets
+  :after org
+  :ensure t
+  :hook (org-mode . org-bullets-mode))
+#+end_src
+
+** org-mode variables
+#+begin_src elisp
+(setq org-startup-indented t
+  org-ellipsis "  " ;; folding symbol
+  org-pretty-entities t
+  org-hide-emphasis-markers t
+  ;; show actually italicized text instead of /italicized text/
+  org-agenda-block-separator ""
+  org-fontify-whole-heading-line t
+  org-fontify-done-headline t
+  org-fontify-quote-and-verse-blocks t
+  org-edit-src-content-indentation 0)
 #+end_src
 
 * EVIL-mode
@@ -65,34 +116,10 @@
   (global-evil-surround-mode 1))
 #+end_src
 
-* Org-mode
-** org-tempo
+* All the icons
 #+begin_src elisp
-(use-package org-tempo
-  :after org)
-  ;; :ensure t)
-#+end_src
-
-** org-bullets
-#+begin_src elisp
-(use-package org-bullets
-  :after org
-  :ensure t
-  :hook (org-mode . org-bullets-mode))
-#+end_src
-
-** org-mode variables
-#+begin_src elisp
-(setq org-startup-indented t
-  org-ellipsis "  " ;; folding symbol
-  org-pretty-entities t
-  org-hide-emphasis-markers t
-  ;; show actually italicized text instead of /italicized text/
-  org-agenda-block-separator ""
-  org-fontify-whole-heading-line t
-  org-fontify-done-headline t
-  org-fontify-quote-and-verse-blocks t
-  org-edit-src-content-indentation 0)
+(use-package all-the-icons
+  :ensure t)
 #+end_src
 
 * Magit
@@ -134,7 +161,9 @@
 #+begin_src elisp
 (use-package whitespace
   :ensure t
-  :hook (prog-mode . whitespace-mode))
+  :init (setq whitespace-line-column 80)
+  :hook ((prog-mode . whitespace-mode)
+         (vue-mode . (lambda () (setq whitespace-line-column 100)))))
 #+end_src
 
 * Quickrun
@@ -181,37 +210,11 @@
   :ensure t)
 #+end_src
 
-* Python
-#+begin_src elisp
-(use-package elpy
-  :ensure t
-  :hook ((python-mode . elpy-enable)
-         (elpy-mode . (lambda () (highlight-indentation-mode -1)))))
-#+end_src
-
-* Vue
-#+begin_src elisp
-(use-package vue-mode
-  :ensure t)
-#+end_src
-
 * Emmet
 #+begin_src elisp
 (use-package emmet-mode
   :ensure t
   :hook (vue-mode . emmet-mode))
-#+end_src
-
-* C
-#+begin_src elisp
-(setq-default c-basic-offset 4)
-(setq c-default-style "bsd")
-#+end_src
-
-* PKGBUILD
-#+begin_src elisp
-(use-package pkgbuild-mode
-  :ensure t)
 #+end_src
 
 * which-key
@@ -220,6 +223,23 @@
   :ensure t
   :config
   (which-key-mode))
+#+end_src
+
+* Backups
+#+begin_src elisp
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq create-lockfiles nil)
+#+end_src
+
+* Super save
+#+begin_src elisp
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t)
+  (setq auto-save-default nil))
 #+end_src
 
 * Look and feel
@@ -253,6 +273,8 @@ Automatic pair matching (brackets, parens, etc.)
 #+begin_src elisp
 (add-hook 'prog-mode-hook
 	  #'electric-pair-local-mode)
+(add-hook 'vue-mode-hook
+          #'electric-pair-local-mode)
 #+end_src
 
 Rainbow delimeters
@@ -288,7 +310,7 @@ Line numbers in prog mode
 
 ** Font
 #+begin_src elisp
-(set-frame-font "Source code pro 11" nil t)
+(set-frame-font "Source code pro 10" nil t)
 #+end_src
 
 ** Dashboard
