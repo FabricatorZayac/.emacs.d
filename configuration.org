@@ -242,6 +242,14 @@
   (setq auto-save-default nil))
 #+end_src
 
+* Elcord
+#+begin_src elisp
+(use-package elcord
+  :ensure t
+  :config
+  (elcord-mode))
+#+end_src
+
 * Look and feel
 ** Exit
 #+begin_src elisp
