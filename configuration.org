@@ -163,6 +163,7 @@
   :ensure t
   :init (setq whitespace-line-column 80)
   :hook ((prog-mode . whitespace-mode)
+         (vue-mode . whitespace-mode)
          (vue-mode . (lambda () (setq whitespace-line-column 100)))))
 #+end_src
 
