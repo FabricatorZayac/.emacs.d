@@ -179,8 +179,10 @@
   :ensure t
   :init (setq whitespace-line-column 80)
   :hook ((prog-mode . whitespace-mode)
-         (vue-mode . whitespace-mode)
          (vue-mode . (lambda () (setq whitespace-line-column 100)))))
+         ;; ((delq nil (delete-dups (mapcar (lambda (x)
+         ;;                                   (nth 5 x))
+         ;;                                 vue-modes))) . whitespace-mode)))
 #+end_src
 
 * Quickrun
