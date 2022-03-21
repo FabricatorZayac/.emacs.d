@@ -1,7 +1,7 @@
 #+TITLE: Emacs config
 #+STARTUP: overview
 
-* Languages
+* Major modes
 ** C
 #+begin_src elisp
 (setq-default c-basic-offset 4)
@@ -26,6 +26,28 @@
 #+begin_src elisp
 (use-package pkgbuild-mode
   :ensure t)
+#+end_src
+
+** Magit
+#+begin_src elisp
+(use-package magit
+  :ensure t)
+#+end_src
+
+** Treemacs
+*** treemacs itself
+#+begin_src elisp
+(use-package treemacs
+  :ensure t)
+#+end_src
+
+*** treemacs-icons-dired
+(for some reason doesn't load properly)
+#+begin_src elisp
+(use-package treemacs-icons-dired
+  :after treemacs dired all-the-icons
+  :ensure t
+  :config (treemacs-icons-dired-mode))
 #+end_src
 
 * Org-mode
@@ -122,12 +144,6 @@
   :ensure t)
 #+end_src
 
-* Magit
-#+begin_src elisp
-(use-package magit
-  :ensure t)
-#+end_src
-
 * Reverse-im
 #+begin_src elisp
 (use-package reverse-im
@@ -180,22 +196,6 @@
   :commands lsp
   :ensure t
   :hook(c-mode . lsp))
-#+end_src
-
-* Treemacs
-** treemacs itself
-#+begin_src elisp
-(use-package treemacs
-  :ensure t)
-#+end_src
-
-** treemacs-icons-dired
-(for some reason doesn't load properly)
-#+begin_src elisp
-(use-package treemacs-icons-dired
-  :after treemacs dired all-the-icons
-  :ensure t
-  :config (treemacs-icons-dired-mode))
 #+end_src
 
 * LSP-treemacs
