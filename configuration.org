@@ -339,10 +339,10 @@ Line numbers in prog mode
         dashboard-set-navigator t
         dashboard-center-content t)
   (setq dashboard-navigator-buttons
-        `(((,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
-            "Update Packages"
-            "Click to updates your packages"
-            (lambda (&rest _) (auto-package-update-now)))
+        `((;; (,(all-the-icons-faicon "archive" :height 1.1 :v-adjust 0.0)
+           ;;  "Update Packages"
+           ;;  "Click to updates your packages"
+           ;;  (lambda (&rest _) (auto-package-update-now)))
 
 	   (,(all-the-icons-octicon "gear" :height 1.1 :v-adjust 0.0)
             "Configuration"
