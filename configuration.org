@@ -91,6 +91,7 @@
         evil-want-C-u-scroll t)
   :config
   (evil-mode 1)
+  (evil-global-set-key 'normal (kbd ":") 'smex)
   (evil-global-set-key 'normal (kbd ";") 'evil-ex)
   (evil-define-key 'normal elpy-mode-map (kbd "C-<f1>") 'elpy-goto-definition))
 #+end_src
@@ -177,12 +178,8 @@
 #+begin_src elisp
 (use-package whitespace
   :ensure t
-  :init (setq whitespace-line-column 80)
-  :hook ((prog-mode . whitespace-mode)
-         (vue-mode . (lambda () (setq whitespace-line-column 100)))))
-         ;; ((delq nil (delete-dups (mapcar (lambda (x)
-         ;;                                   (nth 5 x))
-         ;;                                 vue-modes))) . whitespace-mode)))
+  :init (setq whitespace-line-column 100)
+  :hook ((prog-mode . whitespace-mode)))
 #+end_src
 
 * Quickrun
@@ -251,6 +248,24 @@
   :ensure t
   :config
   (elcord-mode))
+#+end_src
+
+* Smex
+#+begin_src elisp
+(use-package smex
+  :ensure t
+  :config
+  (smex-initialize)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
+#+end_src
+
+* Ido
+#+begin_src elisp
+(use-package ido
+  :ensure t
+  :config
+  (ido-mode t))
 #+end_src
 
 * Look and feel
